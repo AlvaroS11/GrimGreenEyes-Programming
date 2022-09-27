@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<InventorySlot> slotsList = new List<InventorySlot>(); //Almacena los SLOTS (objetos con botones) del inventario
     private Dictionary<Item, int> inventoryItems = new Dictionary<Item, int>(); //Lista de ITEMS que posee el jugador
 
+    [SerializeField] private OptionsPanel optionsPanel;
+
 
     void Start() //Indexa todos los slots en una lista
     {
@@ -71,5 +73,10 @@ public class Inventory : MonoBehaviour
     {
         RemoveItem(item);
         UpdateInventory();
+    }
+
+    public void OpenOptionsPanel(Vector3 position)
+    {
+        optionsPanel.ShowOptionsPanel(position);
     }
 }

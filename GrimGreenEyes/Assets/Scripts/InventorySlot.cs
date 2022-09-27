@@ -53,13 +53,12 @@ public class InventorySlot : MonoBehaviour
         return item;
     }
 
-    public void TestRemoveItem()
+    public void ClickSlot() 
     {
         if (item.name == voidItem.name || item == null)
-        {
             return;
-        }
-        inventoryManager.TestRemoveItem(item);
+
+        inventoryManager.OpenOptionsPanel(this.transform.position);
     }
 
 
