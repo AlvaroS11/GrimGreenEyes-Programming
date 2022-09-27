@@ -5,6 +5,9 @@ using UnityEngine;
 public class Navigation : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject actualNode;
+
     void Start()
     {
         
@@ -14,5 +17,21 @@ public class Navigation : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void moveToNode(GameObject node)
+    {
+        Debug.Log("click");
+        // if (actualNode)
+      //  GameObject isInList = actualNode.GetComponent<PathOptions>().myArray
+        //Debug.Log("");
+        if(actualNode) // si el botón (nodo) está en la lista del primero y está activo, el nodo actual es el siguiente
+                       //
+            if(actualNode.GetComponent<PathOptions>().getGameobjects(node))
+            {
+                actualNode = node;
+                Debug.Log("cambia correcto");
+
+            }
     }
 }
