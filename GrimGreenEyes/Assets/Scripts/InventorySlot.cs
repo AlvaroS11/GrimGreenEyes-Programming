@@ -58,7 +58,7 @@ public class InventorySlot : MonoBehaviour
         if (item.name == voidItem.name || item == null)
             return;
 
-        inventoryManager.OpenOptionsPanel(this.transform.position);
+        inventoryManager.OpenOptionsPanel(this.transform.position, item);
     }
 
 

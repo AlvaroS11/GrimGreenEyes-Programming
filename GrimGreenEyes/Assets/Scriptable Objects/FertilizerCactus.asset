@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efc284a6dc5e8ad46a6ba82e7492a686, type: 3}
-  m_Name: InsectBody
+  m_Name: FertilizerCactus
   m_EditorClassIdentifier: 
-  name: "Cad\xE1ver de insecto"
-  sprite: {fileID: 21300000, guid: ba7b66daa97326844bd1d319fd62657a, type: 3}
-  type: 2
+  name: Fertilizante de Cactus
+  sprite: {fileID: 21300000, guid: 9f66e3d8acad22043a9ff001ff7875c0, type: 3}
+  type: 3

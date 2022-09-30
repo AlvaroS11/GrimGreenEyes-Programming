@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject inventoryObject; //Objeto padre del panel del inventario
+    [SerializeField] private GameObject inventoryObject, debugPanel; //Objeto padre del panel del inventario
     [SerializeField] private List<InventorySlot> slotsList = new List<InventorySlot>(); //Almacena los SLOTS (objetos con botones) del inventario
     private Dictionary<Item, int> inventoryItems = new Dictionary<Item, int>(); //Lista de ITEMS que posee el jugador
+    [SerializeField] private Blender blender;
 
     [SerializeField] private OptionsPanel optionsPanel;
 
@@ -18,6 +20,8 @@ public class Inventory : MonoBehaviour
             slotsList.Add(child.GetComponent<InventorySlot>());
         }
         UpdateInventory();
+
+        CloseDebugPanel(); //DEBUGGING
     }
     
     public void UpdateInventory() //Aplica los ITEMS en el diccionario al GRID
@@ -46,6 +50,7 @@ public class Inventory : MonoBehaviour
         {
             inventoryItems.Add(item, 1);
         }
+        UpdateInventory();
     }
 
     public void RemoveItem(Item item) //Reduce en 1 unidad la cantidad del item indicado. Si la cantidad llega a 0, el item es borrado de la lista.
@@ -61,22 +66,45 @@ public class Inventory : MonoBehaviour
         {
             inventoryItems.Remove(item);
         }
+        UpdateInventory();
     }
 
     public void TestAddItem(Item item)
     {
         AddItem(item);
-        UpdateInventory();
     }
 
-    public void TestRemoveItem(Item item)
+    public void CloseDebugPanel()
     {
-        RemoveItem(item);
-        UpdateInventory();
+        debugPanel.SetActive(false);
     }
 
-    public void OpenOptionsPanel(Vector3 position)
+    public void OpenDebugPanel()
     {
-        optionsPanel.ShowOptionsPanel(position);
+        debugPanel.SetActive(true);
+    }
+
+    public void OpenOptionsPanel(Vector3 position, Item item)
+    {
+        optionsPanel.ShowOptionsPanel(position, item);
+    }
+
+    public bool AddToBlender(Item item)
+    {
+        if (blender.isBlenderFull())
+        {
+            return false;
+        }
+        else
+        {
+            RemoveItem(item);
+            blender.AddItem(item);
+            return true;
+        }
+    }
+
+    public void PlantSeed(Item item)
+    {
+
     }
 }

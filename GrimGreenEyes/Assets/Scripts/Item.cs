@@ -6,4 +6,13 @@ public class Item : ScriptableObject
     //Almacena las propiedades del objeto
     public string name;
     public Sprite sprite;
+    public int type = Items.NULL;
+}
+
+public static class Items
+{
+    public const int NULL = -1;
+    public const int SEED = 1;
+    public const int INSECT_BODY = 2;
+    public const int FERTILIZER = 3;
 }
