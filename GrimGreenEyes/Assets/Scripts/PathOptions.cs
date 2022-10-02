@@ -26,9 +26,10 @@ public class PathOptions : MonoBehaviour
     {
 		//Check if node is in myArray and bool isup
 		foreach (var x in myArray){
-			if (x.node.GetInstanceID() == node.GetInstanceID())
+			if (x.node.GetInstanceID() == node.GetInstanceID()){
 				if (x.isUp == true)
 					return true;
+			}
         }
 		return false;
     }
