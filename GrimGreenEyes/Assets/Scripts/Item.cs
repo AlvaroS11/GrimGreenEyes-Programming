@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public string name;
     public Sprite sprite;
     public int type = Items.NULL;
+    public PlantType seedType;
 }
 
 public static class Items

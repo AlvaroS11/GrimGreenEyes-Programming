@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject inventoryObject, debugPanel; //Objeto padre del panel del inventario
+    [SerializeField] private GameObject inventoryObject, debugPanel, inventoryAndBlenderObject; //Objeto padre del panel del inventario
     [SerializeField] private List<InventorySlot> slotsList = new List<InventorySlot>(); //Almacena los SLOTS (objetos con botones) del inventario
     private Dictionary<Item, int> inventoryItems = new Dictionary<Item, int>(); //Lista de ITEMS que posee el jugador
     [SerializeField] private Blender blender;
+    [SerializeField] private PlantsManager plantsManager;
 
     [SerializeField] private OptionsPanel optionsPanel;
 
@@ -69,6 +70,18 @@ public class Inventory : MonoBehaviour
         UpdateInventory();
     }
 
+    public void OpenInventory()
+    {
+        inventoryAndBlenderObject.SetActive(true);
+    }
+
+    public void CloseInventory()
+    {
+        blender.RemoveItemInSlot(0);
+        blender.RemoveItemInSlot(1);
+        inventoryAndBlenderObject.SetActive(false);
+    }
+
     public void TestAddItem(Item item)
     {
         AddItem(item);
@@ -105,6 +118,7 @@ public class Inventory : MonoBehaviour
 
     public void PlantSeed(Item item)
     {
-
+        CloseInventory();
+        plantsManager.PlantSeed(item);
     }
 }

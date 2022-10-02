@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Semillas de cactus
   sprite: {fileID: 21300000, guid: 79b7312963271f541a19d6aec346d5dd, type: 3}
   type: 1
+  seedType: {fileID: 11400000, guid: aa9abcff7f2c45646b0f8a4f5215812f, type: 2}
