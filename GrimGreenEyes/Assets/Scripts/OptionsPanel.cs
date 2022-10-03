@@ -14,7 +14,7 @@ public class OptionsPanel : MonoBehaviour
 
     private void Start()
     {
-        HideOptionsPanel();
+        //HideOptionsPanel();
     }
 
     public void ShowOptionsPanel(Vector3 pos, Item item) //All the options displayed when clicking the item

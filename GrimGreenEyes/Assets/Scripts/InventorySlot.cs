@@ -11,10 +11,12 @@ public class InventorySlot : MonoBehaviour
     private int itemAmount = 1;
     [SerializeField] private TextMeshProUGUI itemAmountText;
     [SerializeField] private Item voidItem;
+    private OptionsPanel optionsPanel;
     private Inventory inventoryManager;
 
     private void Start()
     {
+        optionsPanel = GameObject.Find("OptionsPanel").GetComponent<OptionsPanel>();
         inventoryManager = GameObject.Find("InventoryPanel").GetComponent<Inventory>();
     }
 
@@ -56,7 +58,11 @@ public class InventorySlot : MonoBehaviour
     public void ClickSlot() 
     {
         if (item.name == voidItem.name || item == null)
+        {
+            optionsPanel.HideOptionsPanel();
             return;
+        }
+            
 
         inventoryManager.OpenOptionsPanel(this.transform.position, item);
     }

@@ -77,6 +77,7 @@ public class Inventory : MonoBehaviour
 
     public void CloseInventory()
     {
+        optionsPanel.HideOptionsPanel();
         blender.RemoveItemInSlot(0);
         blender.RemoveItemInSlot(1);
         inventoryAndBlenderObject.SetActive(false);
